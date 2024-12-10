@@ -1,1 +1,11 @@
 # Configuration file
+train:
+
+
+data:
+  train_dataset_path: "data/train_data.txt"
+  test_dataset_path: "data/test_data.txt"
+
+
+model:
+  pretrained_name: "distilbert-base-multilingual-cased"
