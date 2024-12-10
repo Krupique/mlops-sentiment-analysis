@@ -17,6 +17,7 @@ spacy = "^3.8.2"
 tokenizers = "^0.21.0"
 scikit-learn = "^1.5.2"
 transformers = "^4.47.0"
+tqdm = "^4.67.1"
 
 [[tool.poetry.source]]
 name = "pytorch"
