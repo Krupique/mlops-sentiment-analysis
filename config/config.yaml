@@ -1,10 +1,13 @@
 # Configuration file
 train:
+  max_length: 100
 
 
 data:
   train_dataset_path: "data/train_data.txt"
   test_dataset_path: "data/test_data.txt"
+  train_split: 0.8
+  random_seed: 42
 
 
 model:
