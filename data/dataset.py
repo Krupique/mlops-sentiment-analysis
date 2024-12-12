@@ -1,6 +1,4 @@
 # Data Processing and dataset class
-import pandas as pd
-# from torch.utils.data import Dataset
 import re
 import nltk
 from nltk.corpus import stopwords
