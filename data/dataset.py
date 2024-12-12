@@ -1,20 +1,32 @@
 # Data Processing and dataset class
 import pandas as pd
 # from torch.utils.data import Dataset
-import spacy
+import re
+import nltk
+from nltk.corpus import stopwords
+from nltk.stem import WordNetLemmatizer
 
 class TextClassificationDataset():
-    def __init__(self, csv_path):
-        self.data = pd.read_csv(csv_path, header=None, delimiter=';')
+    def __init__(self, data):
+        # Ensure required NLTK data is downloaded
+        nltk.download('punkt')
+        nltk.download('wordnet')
+        nltk.download('stopwords')
+        
+        self.data = data
         self.data = self.data.rename(columns={0: 'text', 1: 'feeling'})
-        
-        self.spacy_nlp = spacy.load('en_core_web_md')
-        
-        print('Aplying data preprocessing')
-        self.data['transformed_text'] = self.data['text'].apply(self.data_preprocessing)
+        self.lemmatizer = WordNetLemmatizer()
+        self.stop_words = set(stopwords.words('english'))
+        self.data['transformed_text'] = self.data['text'].apply(self.custom_nlp)
+        print('Preprocessing completed')    
 
-    def data_preprocessing(self, text):
-        doc = self.spacy_nlp(text)
-        tokens = [token.lemma_.lower().strip() for token in doc if not token.is_stop]
-    
-        return ' '.join(tokens)
+    def custom_nlp(self, text):
+        # Tokenize the text
+        tokens = re.findall(r'\b\w+\b', text.lower())  # Extract words, ignoring punctuation
+        # Remove stopwords, remove punctuation, and lemmatize
+        processed_tokens = [
+            self.lemmatizer.lemmatize(token.strip()) for token in tokens 
+            if token not in self.stop_words and token.isalnum()  # Check for alphanumeric tokens
+        ]
+        # Join tokens into a single string
+        return ' '.join(processed_tokens)
