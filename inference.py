@@ -1,31 +1,19 @@
 # Main training script
-import yaml
+import json
 import argparse
 import torch
-from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelEncoder
-from sklearn.metrics import accuracy_score, confusion_matrix, classification_report
 import joblib
 import pandas as pd
-
-import transformers
 from tokenizers import BertWordPieceTokenizer
-from torch.utils.data import DataLoader, TensorDataset
-from transformers import DistilBertModel
-
-import torch.optim as optim
-import torch.nn as nn
-
 from data.dataset import TextClassificationDataset
-from utils.preprocessing import encode, to_categorical
-from models import classifier
-from utils.trainer import Trainer
+from utils.preprocessing import encode
 
 
 def main(sentence, config_path):
     # Load config
     with open(config_path, "r") as f:
-        config = yaml.safe_load(f)
+        config = json.load(f)
 
     # Device setup
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
@@ -74,6 +62,6 @@ if __name__ == "__main__":
     )
     args = parser.parse_args()
 
-    config_path = "config/config.yaml"
+    config_path = "config/config.json"
     
     response = main(args.sentence, config_path)
