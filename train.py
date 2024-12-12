@@ -1,5 +1,5 @@
 # Main training script
-import yaml
+import json
 import torch
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelEncoder
@@ -21,10 +21,10 @@ from models import classifier
 from utils.trainer import Trainer
 
 
-def main(config_path="config/config.yaml"):
+def main(config_path="config/config.json"):
     # Load config
     with open(config_path, "r") as f:
-        config = yaml.safe_load(f)
+        config = json.load(f)
 
     # Device setup
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
