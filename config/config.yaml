@@ -1,6 +1,8 @@
 # Configuration file
 train:
   max_length: 100
+  num_epochs: 20
+  
 
 
 data:
@@ -12,3 +14,4 @@ data:
 
 model:
   pretrained_name: "distilbert-base-multilingual-cased"
+  batch_size: 16
