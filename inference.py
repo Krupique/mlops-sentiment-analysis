@@ -25,7 +25,7 @@ def main(sentence, config_path):
     le = joblib.load('label_encoder_weights.joblib')
 
     # Load Model
-    model = torch.load("models/model_v1_complete.pth")
+    model = torch.load("models/model_v1_complete.pth", map_location=device)
     # Putting the model in evaluation mode if it is for inference
     model.eval()
 
@@ -47,6 +47,7 @@ def main(sentence, config_path):
 
     # Get the class name
     class_name = le.inverse_transform(predicted_label)
+    
     print(class_name)
 
     return class_name
