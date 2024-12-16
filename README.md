@@ -35,7 +35,7 @@ Finally, the train subset has been divided in two smallest datasets, train (80%)
 
 ### Flowchart of this project:
 
-<img src="assets/sentiment_analysis.png" width=60%>
+<img src="assets/sentiment_analysis.png" width=100%>
 
 1. **Pretrained Dataset**: Raw data used for pretraining the base model (BERT).  
 2. **BERT LLM Model**: Pretrained language model serving as the foundation for specialization. <br/><br/>
@@ -49,35 +49,35 @@ Finally, the train subset has been divided in two smallest datasets, train (80%)
 
 ### Directory structure:
 
-mlops-sentiment-analysis/  
-├── config/
-│    └── config.json
-├── data/
-│    ├── dataset.py
-│    ├── test_data.txt
-│    └── train_data.txt
-├── dist/
-│    └── transfer learning using bert-0.1.0.tar.gz
-├── models/
-│    ├── classifier.py
-│    └── model_v1_complete.pth
-├── notebooks/
-│    └── transformer.ipynb
-├── utils/
-│    ├── preprocessing.py
-│    └── trainer.py
-├── assets/
-│    └── sentiment_analysis.png
-├── Dockerfile
-├── inference.py
-├── label_encoder_weights.joblib
-├── poetry.lock
-├── pyproject.toml
-├── README.md
-├── special_tokens_map.json
-├── tokenizer_config.json
-├── train.py
-└── vocab.txt
+mlops-sentiment-analysis/ <br/>
+├── config/  <br/>
+│    └── config.json  <br/>
+├── data/  <br/>
+│    ├── dataset.py  <br/>
+│    ├── test_data.txt  <br/>
+│    └── train_data.txt  <br/>
+├── dist/  <br/>
+│    └── transfer learning using bert-0.1.0.tar.gz  <br/>
+├── models/  <br/>
+│    ├── classifier.py  <br/>
+│    └── model_v1_complete.pth  <br/>
+├── notebooks/  <br/>
+│    └── transformer.ipynb  <br/>
+├── utils/  <br/>
+│    ├── preprocessing.py  <br/>
+│    └── trainer.py  <br/>
+├── assets/  <br/>
+│    └── sentiment_analysis.png  <br/>
+├── Dockerfile  <br/>
+├── inference.py  <br/>
+├── label_encoder_weights.joblib  <br/>
+├── poetry.lock  <br/>
+├── pyproject.toml  <br/>
+├── README.md  <br/>
+├── special_tokens_map.json  <br/>
+├── tokenizer_config.json  <br/>
+├── train.py  <br/>
+└── vocab.txt  <br/>
 
 1. **Root Directory**: `03-sentiment-analysis/`  
    - The main directory containing all project files and subdirectories.
