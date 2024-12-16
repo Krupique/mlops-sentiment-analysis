@@ -33,7 +33,21 @@ Finally, the train subset has been divided in two smallest datasets, train (80%)
 
 ## Project structure
 
-The project has the following structure: The data directory contains the training and testing datasets. The basic-dnn, lstm and transformer files contain the implementations, according to their respective names. And the transformer-main.py file contains the transformer architecture developed so that it can be scaled to production via AWS.
+### Flowchart of this project:
+
+<img src="assets/sentiment_analysis.png" width=60%>
+
+1. **Pretrained Dataset**: Raw data used for pretraining the base model (BERT).  
+2. **BERT LLM Model**: Pretrained language model serving as the foundation for specialization. <br/><br/>
+3. **Domain-Specific Knowledge**: Specialized domain knowledge incorporated to enhance the model's fine-tuning process.  
+4. **Data Preprocessing**: Cleaning and preparing domain-specific data to adapt it for use during fine-tuning.  <br/><br/>
+5. **Fine Tuning**: The process of adjusting the model with domain-specific data to meet the desired task (e.g., sentiment classification).  
+6. **Fine Tuned LLM**: A fine-tuned language model, ready for inference in the target application.  
+7. **Containerized Model for Deployment**: The model encapsulated in a container (e.g., Docker) to facilitate deployment.  
+8. **Deployment on AWS Cloud**: Implementation of the model in a scalable cloud environment using AWS services.  
+
+
+### Directory structure:
 
 03-sentiment-analysis/
 ├── config/
@@ -42,7 +56,7 @@ The project has the following structure: The data directory contains the trainin
 ├── models/
 ├── notebooks/
 ├── utils/
-├── 
+├── assets/
 ├── 
 ├── 
 ├── 
@@ -92,13 +106,7 @@ To adapt DistilBERT to our specific task, we'll fine-tune it on labeled data. Th
 After fine-tuning, we'll evaluate the model on a validation dataset to measure performance. Then, we'll save the fine-tuned model for future use and deploy it to handle inference requests.
 
 
-
-
----
-### Benchmark
-
-
 ---
 ## Other Implementations
 
-You can see more implementations using another archtecture such as Basic DNN and LSTM here: [Sentiment Analysis](https://github.com/Krupique/transformers/tree/main/03-sentiment-analysis)
+You can see other implementations and also a benchmark comparing other architectures. such as Basic DNN and LSTM here: [Sentiment Analysis](https://github.com/Krupique/transformers/tree/main/03-sentiment-analysis)
